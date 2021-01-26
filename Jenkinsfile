@@ -21,8 +21,7 @@ pipeline {
 		NAMEBASE = "squeezeboxserver"
 		SECONDARYREGISTRY = "nexus.intrepid.local:4000"
 		BASETYPE = "squeezeboxserver"
-//		BASECONTAINER = "-empty-"
-//		BASESCRIPT = "./base.sh"
+		BASECONTAINER = "-empty-"
 		SOFTWAREVERSION = """${sh(
 			returnStdout: true,
 			script: '/bin/bash ./get_version.sh'
