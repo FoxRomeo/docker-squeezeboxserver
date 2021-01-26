@@ -1,4 +1,4 @@
-Docker file for Logitech Media Server/Squeezeboxserver on CentOS 8 
+Dockerfile for Logitech Media Server/Squeezeboxserver on CentOS 8 baseimage
 Run:
 ```
 docker run -d \
@@ -14,3 +14,4 @@ docker run -d \
 
 You can find logs and preferences in \<local_state_dir\>. To prevent clashing with user IDs on the host server, Squeezeboxserver runs with UID 8888 and GID 8888.
 
+Preparing for armv32v7 and arm64v8 containers in the "near" future
