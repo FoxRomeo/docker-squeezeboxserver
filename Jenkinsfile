@@ -15,13 +15,12 @@ pipeline {
 		timeout(time: 4, unit: 'HOURS') 
 	}
 	environment {
-//		DEBUG = "1"
+		DEBUG = "1"
 		REGISTRY = "intrepidde"
 		EMAIL_TO = 'olli.jenkins.prometheus@intrepid.de'
 		NAMEBASE = "squeezeboxserver"
 		SECONDARYREGISTRY = "nexus.intrepid.local:4000"
-		BASETYPE = "squeezeboxserver"
-		BASECONTAINER = "-empty-"
+		BASETYPE = "-empty-"
 		SOFTWAREVERSION = """${sh(
 			returnStdout: true,
 			script: '/bin/bash ./get_version.sh'
