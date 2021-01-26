@@ -20,7 +20,7 @@ pipeline {
 		EMAIL_TO = 'olli.jenkins.prometheus@intrepid.de'
 		NAMEBASE = "squeezeboxserver"
 		SECONDARYREGISTRY = "nexus.intrepid.local:4000"
-//		BASETYPE = ""
+		BASETYPE = "squeezeboxserver"
 //		BASECONTAINER = "-empty-"
 //		BASESCRIPT = "./base.sh"
 		SOFTWAREVERSION = """${sh(
