@@ -8,15 +8,20 @@ MAINTAINER docker@intrepid.de
 
 ENV VERSION=<<LMSVERSION>>
 
-RUN passwd -l root ; \
+ENV LANG=de_DE.UTF-8
+
+RUN yum -y update && \
+#   passwd -l root ; \
 #   yum -y update --security && \
-    yum -y update && \
     yum -y install perl-Time-HiRes perl-CGI perl-YAML perl-Digest-MD5 initscripts perl-IO-Socket-SSL.noarch && \
 	sed -i 's/pidof -c -m/pidof -m/g' /etc/init.d/functions && \
 	echo 'squeezeboxserver:x:8888' >> /etc/group && \
 	echo 'squeezeboxserver:x:8888:8888:Logitech Media Server:/usr/share/squeezeboxserver/squeezeboxserver:/bin/bash' >> /etc/passwd && \
 	yum -y install http://downloads.slimdevices.com/LogitechMediaServer_v${VERSION}/logitechmediaserver-${VERSION}-1.noarch.rpm && \
 	ln -s /usr/lib/perl5/vendor_perl/Slim /usr/lib64/perl5/ && \
+    /usr/sbin/locale-gen en_US.UTF-8 && \
+	/usr/sbin/locale-gen ${LANG} && \
+    /usr/sbin/update-locale LANG=${LANG} && \
 	yum clean all && \
 	rm -rf /var/lib/yum/yumdb /var/tmp/* /tmp/*; \
 	for i in $(find /var/log -type f); do echo > $i;done; \
