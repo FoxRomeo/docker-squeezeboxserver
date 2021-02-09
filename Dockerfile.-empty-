@@ -26,13 +26,12 @@ RUN yum -y update && \
 	rm -rf /var/lib/yum/yumdb /var/tmp/* /tmp/*; \
 	for i in $(find /var/log -type f); do echo > $i;done; \
 	rm /root/{*cfg,*log*} ; \
-	mkdir -p /mnt/music ; \
-	mkdir -p /mnt/state
+	mkdir -p /mnt/state/log /mnt/state/cache /mnt/state/prefs /mnt/state/playlists ; \
+	mkdir -p /mnt/music
 
 COPY ./bin/run_server /usr/local/bin/
 COPY ./etc/squeezeboxserver /etc/sysconfig/
 
-VOLUME ['/mnt/state']
 EXPOSE 3483 9000 9090
 
 CMD /usr/local/bin/run_server
