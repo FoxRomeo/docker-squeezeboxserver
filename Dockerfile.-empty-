@@ -19,8 +19,10 @@ RUN yum -y update && \
     echo 'squeezeboxserver:!locked::0:99999::::' >> /etc/shadow && \
     yum -y install http://downloads.slimdevices.com/LogitechMediaServer_v${VERSION}/logitechmediaserver-${VERSION}-1.noarch.rpm && \
     ln -s /usr/lib/perl5/vendor_perl/Slim /usr/lib64/perl5/ && \
-    /usr/sbin/locale-gen en_US.UTF-8 && \
-    /usr/sbin/locale-gen ${LANG} && \
+#    /usr/sbin/locale-gen en_US.UTF-8 && \
+#    /usr/sbin/locale-gen ${LANG} && \
+    localedef -v -c -i en_US -f UTF-8 en_US.UTF-8 && \
+    localedef -v -c -i de_DE -f UTF-8 de_DE.UTF-8 && \
     /usr/sbin/update-locale LANG=${LANG} && \
     yum clean all && \
     rm -rf /var/lib/yum/yumdb /var/tmp/* /tmp/*; \
