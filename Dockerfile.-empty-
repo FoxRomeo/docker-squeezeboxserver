@@ -13,21 +13,21 @@ ENV LANG=de_DE.UTF-8
 RUN yum -y update && \
     yum -y update --security && \
     yum -y install perl-Time-HiRes perl-CGI perl-YAML perl-Digest-MD5 initscripts perl-IO-Socket-SSL.noarch && \
-	sed -i 's/pidof -c -m/pidof -m/g' /etc/init.d/functions && \
-	echo 'squeezeboxserver:x:8888' >> /etc/group && \
-	echo 'squeezeboxserver:x:8888:8888:Logitech Media Server:/usr/share/squeezeboxserver/squeezeboxserver:/bin/bash' >> /etc/passwd && \
-	echo 'squeezeboxserver:!locked::0:99999::::' >> /etc/shadow && \
-	yum -y install http://downloads.slimdevices.com/LogitechMediaServer_v${VERSION}/logitechmediaserver-${VERSION}-1.noarch.rpm && \
-	ln -s /usr/lib/perl5/vendor_perl/Slim /usr/lib64/perl5/ && \
+    sed -i 's/pidof -c -m/pidof -m/g' /etc/init.d/functions && \
+    echo 'squeezeboxserver:x:8888' >> /etc/group && \
+    echo 'squeezeboxserver:x:8888:8888:Logitech Media Server:/usr/share/squeezeboxserver/squeezeboxserver:/bin/bash' >> /etc/passwd && \
+    echo 'squeezeboxserver:!locked::0:99999::::' >> /etc/shadow && \
+    yum -y install http://downloads.slimdevices.com/LogitechMediaServer_v${VERSION}/logitechmediaserver-${VERSION}-1.noarch.rpm && \
+    ln -s /usr/lib/perl5/vendor_perl/Slim /usr/lib64/perl5/ && \
     /usr/sbin/locale-gen en_US.UTF-8 && \
-	/usr/sbin/locale-gen ${LANG} && \
+    /usr/sbin/locale-gen ${LANG} && \
     /usr/sbin/update-locale LANG=${LANG} && \
-	yum clean all && \
-	rm -rf /var/lib/yum/yumdb /var/tmp/* /tmp/*; \
-	for i in $(find /var/log -type f); do echo > $i;done; \
-	rm /root/{*cfg,*log*} ; \
-	mkdir -p /mnt/state/log /mnt/state/cache /mnt/state/prefs /mnt/state/playlists ; \
-	mkdir -p /mnt/music
+    yum clean all && \
+    rm -rf /var/lib/yum/yumdb /var/tmp/* /tmp/*; \
+    for i in $(find /var/log -type f); do echo > $i;done; \
+    rm /root/{*cfg,*log*} ; \
+    mkdir -p /mnt/state/log /mnt/state/cache /mnt/state/prefs /mnt/state/playlists ; \
+    mkdir -p /mnt/music
 
 COPY ./bin/run_server /usr/local/bin/
 COPY ./etc/squeezeboxserver /etc/sysconfig/

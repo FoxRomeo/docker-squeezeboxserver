@@ -1,4 +1,4 @@
-*.sw?
-*~
-*.bak
-buildlog
+Jenkinsfile
+action.sh
+get_version.sh
+run_version.sh

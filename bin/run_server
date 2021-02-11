@@ -6,6 +6,7 @@
 # Run squeezeboxserver
 #
 # WS 20160117
+# modified FoxRomeo 202102
 ############################################################
 
 if ! . /etc/sysconfig/squeezeboxserver; then
@@ -37,5 +38,6 @@ service squeezeboxserver start
 
 # Keep running so we can exit cleanly
 while true; do
-	read i
+#	read i
+	sleep 1h
 done
