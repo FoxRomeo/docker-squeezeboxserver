@@ -12,6 +12,7 @@ ENV LANG=de_DE.UTF-8
 
 RUN yum -y update && \
     yum -y update --security && \
+    yum -y reinstall glibc-common && \
     yum -y install perl-Time-HiRes perl-CGI perl-YAML perl-Digest-MD5 initscripts perl-IO-Socket-SSL.noarch && \
     sed -i 's/pidof -c -m/pidof -m/g' /etc/init.d/functions && \
     echo 'squeezeboxserver:x:8888' >> /etc/group && \
