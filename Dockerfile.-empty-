@@ -13,6 +13,7 @@ ENV LANG=de_DE.UTF-8
 RUN yum -y update && \
     yum -y update --security && \
     yum -y reinstall glibc-common && \
+    yum -y install glibc-locale-source glibc-langpack-en && \
     yum -y install perl-Time-HiRes perl-CGI perl-YAML perl-Digest-MD5 initscripts perl-IO-Socket-SSL.noarch && \
     sed -i 's/pidof -c -m/pidof -m/g' /etc/init.d/functions && \
     echo 'squeezeboxserver:x:8888' >> /etc/group && \
@@ -22,9 +23,9 @@ RUN yum -y update && \
     ln -s /usr/lib/perl5/vendor_perl/Slim /usr/lib64/perl5/ && \
 #    /usr/sbin/locale-gen en_US.UTF-8 && \
 #    /usr/sbin/locale-gen ${LANG} && \
-    localedef -v -c -i en_US -f UTF-8 en_US.UTF-8 && \
-    localedef -v -c -i de_DE -f UTF-8 de_DE.UTF-8 && \
-    /usr/sbin/update-locale LANG=${LANG} && \
+    localedef -v -c -i en_US -f UTF-8 en_US.UTF-8 ; \
+    localedef -v -c -i de_DE -f UTF-8 de_DE.UTF-8 ; \
+    /usr/sbin/update-locale LANG=${LANG} ; \
     yum clean all && \
     rm -rf /var/lib/yum/yumdb /var/tmp/* /tmp/*; \
     for i in $(find /var/log -type f); do echo > $i;done; \
