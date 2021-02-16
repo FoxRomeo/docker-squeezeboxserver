@@ -1,4 +1,4 @@
-Dockerfile for Logitech Media Server/Squeezeboxserver on CentOS 8 baseimage
+Dockerfile for Logitech Media Server/Squeezeboxserver on Debian Buster/Perl5 baseimage
 Run:
 ```
 docker run -d \
