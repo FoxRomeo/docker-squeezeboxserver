@@ -20,7 +20,6 @@ ENV LC_ALL="C.UTF-8"
 ENV LANG="de_DE.UTF-8" 
 ENV LANGUAGE="de_DE.UTF-8"
 
-COPY ./bin/entrypoint.sh /
 COPY ./bin/run.sh /
 
 RUN passwd -l root ; \
@@ -68,9 +67,7 @@ COPY ./etc/logitechmediaserver /etc/default/logitechmediaserver
 
 EXPOSE 3483 9000 9090
 
-ENTRYPOINT ["/entrypoint.sh"]
-
-CMD ["/run.sh"]
+CMD /run.sh
 
 HEALTHCHECK --start-period=30s --interval=30s --timeout=5s --retries=3 \
   CMD curl --silent --fail http://localhost:9000 || exit 1

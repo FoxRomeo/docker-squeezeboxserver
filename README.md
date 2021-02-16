@@ -9,6 +9,7 @@ docker run -d \
 	-p 3483:3483/tcp \
 	-p 9000:9000 \
 	-p 9090:9090 \
+	-e SLIMOPTIONS="--quiet --noimage --novideo"
 	-v <local_state_dir>:/mnt/state \
 	-v <local_music_dir>:/mnt/music \
 	intrepidde/squeezeboxserver
