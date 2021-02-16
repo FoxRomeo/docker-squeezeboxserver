@@ -59,7 +59,7 @@ RUN passwd -l root ; \
     sed -i s/"squeezeboxserver:x:103"/"squeezeboxserver:x:${SQUEEZE_UID}"/ /etc/passwd && \
     mkdir -p /mnt/state/log /mnt/state/cache /mnt/state/prefs /mnt/state/playlists /mnt/music && \
     chown squeezeboxserver:nogroup /usr/share/perl5/Slim /var/lib/squeezeboxserver /var/log/squeezeboxserver /mnt/state /etc/squeezeboxserver -R && \
-    chmod 755 /run.sh /entrypoint.sh && \
+    chmod 755 /run.sh && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* /etc/default/logitechmediaserver
 
