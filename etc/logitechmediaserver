@@ -1,0 +1,9 @@
+# Edit this to suit your setup
+SLIMUSER="squeezeboxserver"
+SQUEEZE_BASE="/mnt/state"
+PREFSDIR="${SQUEEZE_BASE}/prefs"
+LOGDIR="${SQUEEZE_BASE}/log"
+CACHEDIR="${SQUEEZE_BASE}/cache"
+CHARSET="utf8"
+SLIMOPTIONS="--quiet"
+

@@ -1,4 +1,6 @@
 Dockerfile for Logitech Media Server/Squeezeboxserver on Debian Buster/Perl5 baseimage
+(moved from CentOS to Debian)
+
 Run:
 ```
 docker run -d \
@@ -12,6 +14,6 @@ docker run -d \
 	intrepidde/squeezeboxserver
 ```
 
-You can find logs and preferences in \<local_state_dir\>. To prevent clashing with user IDs on the host server, Squeezeboxserver runs with UID 8888 and GID 8888.
+You can find logs and preferences in \<local_state_dir\>. To prevent clashing with user IDs on the host server, Squeezeboxserver runs with UID 8888 and nogroup (65534).
 
 Preparing for armv32v7 and arm64v8 containers in the "near" future
