@@ -1,6 +1,6 @@
 #FROM <<BASECONTAINER>>
 ARG ARCH=
-FROM ${ARCH}/perl:slim-buster
+FROM ${ARCH}/perl:slim-bullseye
 
 MAINTAINER docker@intrepid.de
 
@@ -12,12 +12,12 @@ MAINTAINER docker@intrepid.de
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-ARG PACKAGE_VERSION_URL='http://www.mysqueezebox.com/update/?version=8.0.0&revision=1&geturl=1&os=deb'
+ARG PACKAGE_VERSION_URL='http://www.mysqueezebox.com/update/?version=8.3.0&revision=1&geturl=1&os=deb'
 ARG SQUEEZE_UID="8888"
 ENV SQUEEZE_BASE="/mnt/state"
 
-ENV LC_ALL="C.UTF-8" 
-ENV LANG="de_DE.UTF-8" 
+ENV LC_ALL="C.UTF-8"
+ENV LANG="de_DE.UTF-8"
 ENV LANGUAGE="de_DE.UTF-8"
 
 COPY ./bin/run.sh /
