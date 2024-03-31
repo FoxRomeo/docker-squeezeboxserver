@@ -12,7 +12,7 @@ MAINTAINER docker@intrepid.de
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-ARG PACKAGE_VERSION_URL='http://www.mysqueezebox.com/update/?version=8.3.0&revision=1&geturl=1&os=deb'
+ARG PACKAGE_VERSION_URL='https://downloads.lms-community.org/LogitechMediaServer_v8.5.0/logitechmediaserver_8.5.0_arm.deb'
 ARG SQUEEZE_UID="8888"
 ENV SQUEEZE_BASE="/mnt/state"
 
