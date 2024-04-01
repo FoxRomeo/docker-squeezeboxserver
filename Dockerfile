@@ -12,7 +12,7 @@ MAINTAINER docker@intrepid.de
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-ARG PACKAGE_VERSION_URL ENV PACKAGE_VERSION_URL=${PACKAGE_VERSION_URL:"https://downloads.lms-community.org/LogitechMediaServer_v8.5.0/logitechmediaserver_8.5.0_all.deb"}
+ARG PACKAGE_VERSION_URL ENV PACKAGE_VERSION_URL="${PACKAGE_VERSION_URL='https://downloads.lms-community.org/LogitechMediaServer_v8.5.0/logitechmediaserver_8.5.0_all.deb'}"
 ARG SQUEEZE_UID="8888"
 ENV SQUEEZE_BASE="/mnt/state"
 
