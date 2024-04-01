@@ -54,6 +54,8 @@ RUN passwd -l root ; \
     dpkg-reconfigure locales && \
     update-locale LANG=${LANG}
 
+RUB echo "-- ${PACKAGE_VERSION_URL} --"
+
 RUN curl -Lsf -o /tmp/logitechmediaserver.deb "${PACKAGE_VERSION_URL}" && \
     dpkg -i /tmp/logitechmediaserver.deb && \
     rm -f /tmp/logitechmediaserver.deb && \
