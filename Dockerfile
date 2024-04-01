@@ -53,8 +53,7 @@ RUN passwd -l root ; \
     sed -i -e 's/# de_DE.UTF-8 UTF-8/de_DE.UTF-8 UTF-8/' /etc/locale.gen && \
     dpkg-reconfigure locales && \
     update-locale LANG=${LANG} && \
-    URL=$(curl "${PACKAGE_VERSION_URL}") && \
-    curl -Lsf -o /tmp/logitechmediaserver.deb "${URL}" && \
+    curl -Lsf -o /tmp/logitechmediaserver.deb "${PACKAGE_VERSION_URL}" && \
     dpkg -i /tmp/logitechmediaserver.deb && \
     rm -f /tmp/logitechmediaserver.deb && \
     sed -i s/"squeezeboxserver:x:103"/"squeezeboxserver:x:${SQUEEZE_UID}"/ /etc/passwd && \
