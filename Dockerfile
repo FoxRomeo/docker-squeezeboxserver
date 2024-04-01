@@ -22,6 +22,8 @@ ENV LC_ALL="C.UTF-8"
 ENV LANG="de_DE.UTF-8"
 ENV LANGUAGE="de_DE.UTF-8"
 
+RUN set
+
 COPY ./bin/run.sh /
 
 RUN passwd -l root ; \
