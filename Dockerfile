@@ -12,7 +12,7 @@ MAINTAINER docker@intrepid.de
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# ARG PACKAGE_VERSION_URL="${PACKAGE_VERSION_URL}"
+# ARG URL="${URL}"
 # https://downloads.lms-community.org/LogitechMediaServer_v8.5.0/logitechmediaserver_8.5.0_all.deb
 ARG SQUEEZE_UID="8888"
 ENV SQUEEZE_BASE="/mnt/state"
@@ -54,9 +54,9 @@ RUN passwd -l root ; \
     dpkg-reconfigure locales && \
     update-locale LANG=${LANG}
 
-RUN echo "-- ${PACKAGE_VERSION_URL} --"
+RUN echo "-- ${URL} --"
 
-RUN curl -Lsf -o /tmp/logitechmediaserver.deb "${PACKAGE_VERSION_URL}" && \
+RUN curl -Lsf -o /tmp/logitechmediaserver.deb "${URL}" && \
     dpkg -i /tmp/logitechmediaserver.deb && \
     rm -f /tmp/logitechmediaserver.deb && \
     sed -i s/"squeezeboxserver:x:103"/"squeezeboxserver:x:${SQUEEZE_UID}"/ /etc/passwd && \
