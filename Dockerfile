@@ -12,7 +12,8 @@ MAINTAINER docker@intrepid.de
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-# ARG DOWNLOADURL="${DOWNLOADURL}"
+# <<ENV>>
+# ENV DOWNLOADURL="${DOWNLOADURL}"
 # https://downloads.lms-community.org/LogitechMediaServer_v8.5.0/logitechmediaserver_8.5.0_all.deb
 ARG SQUEEZE_UID="8888"
 ENV SQUEEZE_BASE="/mnt/state"
