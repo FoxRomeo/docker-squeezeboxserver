@@ -2,7 +2,7 @@
 ARG ARCH=
 FROM ${ARCH}/perl:slim-bullseye
 
-MAINTAINER docker@intrepid.de
+LABEL org.opencontainers.image.authors="docker@intrepid.de"
 
 # based on https://github.com/WalterS/docker-squeezeboxserver
 # with updates from:
