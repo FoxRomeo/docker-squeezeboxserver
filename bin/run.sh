@@ -9,10 +9,11 @@
 # modified FoxRomeo 202102
 ############################################################
 
-if ! . /etc/default/logitechmediaserver ; then
-  echo "ERROR: Could not read /etc/default/logitechmediaserver" >&2
+if ! . /etc/default/lyrionmusicserver ; then
+  echo "ERROR: Could not read /etc/default/lyrionmusicserver" >&2
   exit 1
 fi
+
 
 for SUBDIR in "$PREFSDIR" "$LOGDIR" "$CACHEDIR"; do
   if [ ! -d "${SUBDIR}" ]; then
@@ -30,12 +31,12 @@ chown squeezeboxserver /usr/share/perl5/Slim /var/lib/squeezeboxserver /var/log/
 
 stopping () {
 echo "Exiting..."
-/etc/init.d/logitechmediaserver stop
+  /etc/init.d/lyrionmusicserver stop
 }
 
 trap 'stopping' 0
 
-/etc/init.d/logitechmediaserver start
+/etc/init.d/lyrionmusicserver start
 
 # Keep running so we can exit cleanly
 while true; do

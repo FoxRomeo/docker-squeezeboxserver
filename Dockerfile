@@ -14,7 +14,9 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # <<ENV>>
 # ENV DOWNLOADURL="${DOWNLOADURL}"
-# https://downloads.lms-community.org/LogitechMediaServer_v8.5.0/logitechmediaserver_8.5.0_all.deb
+# https://downloads.lms-community.org/LyrionMusicServer_v9.0.0/lyrionmusicserver_9.0.0_all.deb
+# https://downloads.lms-community.org/nightly/lyrionmusicserver_9.0.1~1733955451_all.deb
+
 ARG SQUEEZE_UID="8888"
 ENV SQUEEZE_BASE="/mnt/state"
 
@@ -59,17 +61,17 @@ RUN passwd -l root ; \
 
 RUN echo "-- ${DOWNLOADURL} --"
 
-RUN curl -Lsf -o /tmp/logitechmediaserver.deb "${DOWNLOADURL}" && \
-    dpkg -i /tmp/logitechmediaserver.deb && \
-    rm -f /tmp/logitechmediaserver.deb && \
+RUN curl -Lsf -o /tmp/lms.deb "${DOWNLOADURL}" && \
+    dpkg -i /tmp/lms.deb && \
+    rm -f /tmp/lms.deb && \
     sed -i s/"squeezeboxserver:x:103"/"squeezeboxserver:x:${SQUEEZE_UID}"/ /etc/passwd && \
     mkdir -p /mnt/state/log /mnt/state/cache /mnt/state/prefs /mnt/state/playlists /mnt/music && \
     chown squeezeboxserver:nogroup /usr/share/perl5/Slim /var/lib/squeezeboxserver /var/log/squeezeboxserver /mnt/state /etc/squeezeboxserver -R && \
     chmod 755 /run.sh && \
     apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /etc/default/logitechmediaserver
+    rm -rf /var/lib/apt/lists/* /etc/default/lyrionmusicserver
 
-COPY ./etc/logitechmediaserver /etc/default/logitechmediaserver
+COPY ./etc/lyrionmusicserver /etc/default/lyrionmusicserver
 
 EXPOSE 3483 9000 9090
 
