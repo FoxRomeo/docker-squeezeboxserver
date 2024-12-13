@@ -1,5 +1,5 @@
 #FROM <<BASECONTAINER>>
-ARG ARCH=
+ARG ARCH=arm64
 FROM ${ARCH}/perl:slim-bullseye
 
 LABEL org.opencontainers.image.authors="docker@intrepid.de"
