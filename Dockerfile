@@ -41,6 +41,8 @@ RUN passwd -l root ; \
       lame \
       sox \
       ffmpeg \
+      procps \
+      psmisc \
       avahi-utils \
       opus-tools \
       libio-socket-ssl-perl \
