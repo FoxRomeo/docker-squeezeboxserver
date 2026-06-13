@@ -1,6 +1,6 @@
-#FROM <<BASECONTAINER>>
-ARG ARCH
-FROM ${ARCH:-amd64}/perl:slim-trixie
+FROM perl:slim-trixie
+#ARG BUILDPLATFORM
+#FROM --platform=$BUILDPLATFORM perl:slim-trixie
 
 LABEL org.opencontainers.image.authors="docker@intrepid.de"
 
